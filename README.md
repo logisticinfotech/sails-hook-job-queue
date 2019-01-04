@@ -1,6 +1,14 @@
-sails hook job-queue with kue
+### sails-hook-job-queue with kue and redis
 
-Export this params globally
+Kue based job queue for sails v1.1.0+. Its a wrapper around [**Kue**](https://automattic.github.io/kue/) for processing published jobs by using [**Redis**](https://redis.io/) as a queue engine.
+
+### Installation
+```
+$ npm i @logisticinfotech/sails-hook-job-queue
+```
+### Usage
+First we need to export this params globally,
+We can declare it inside our development.js or production.js (config/env)
 
 ```
 redis: {
@@ -9,17 +17,20 @@ redis: {
 }
 ```
 
-Install redis server
-To run redis server
-=> redis-server --daemonize yes
+Install Redis server globally,
+
+To run Redis server
+
+=> `redis-server --daemonize yes`
 
 
 Create `Jobs.js` inside api/services
+
 ```
 module.exports = { 
     _processors: {
         demoJob: function (job, cb) {
-            console.error("Job,job is done");
+            console.log("Job,job is done");
             cb();
         },
     }
@@ -27,10 +38,11 @@ module.exports = {
 ```
 
 Create test an action
+
 => `sails generate action test-job`
 
+Add following inside `test-job.js`
 
-Add following inside test-job.js
 ```
 Jobs.create("demoJob", {}).save(function (err) {
     return exits.success();
@@ -39,4 +51,9 @@ Jobs.create("demoJob", {}).save(function (err) {
 
 
 Add entry inside our route object
+
 => `'GET /test-job': { action: 'test-job' },`
+
+### TODO
+
+Implement Kue-ui

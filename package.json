@@ -1,6 +1,6 @@
 {
   "name": "@logisticinfotech/sails-hook-job-queue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "sails hook for job-queue with kue",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "https://github.com/logisticinfotech/sails-hook-job-queue/issues"
   },
   "dependencies": {
-    "kue": "^0.11.6"
+    "kue": "0.11.6"
   },
   "devDependencies": { 
     "sails": "^1.1.0"

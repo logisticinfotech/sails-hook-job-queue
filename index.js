@@ -22,7 +22,7 @@ module.exports = function jobqueue(sails) {
       }
 
       sails.after(eventsToWaitFor, function () {
-        sails.log.info('gone after waitefor');
+        sails.log.info("🍺 Logistic Infotech's sails-hook-job-queue loaded 👍🏻");
         initJobQueue();
       });
     }
@@ -76,14 +76,14 @@ module.exports = function jobqueue(sails) {
     Jobs.on("job complete", function (id) {
       Job.get(id, function (err, job) {
         if (err) return;
-        sails.log.info("Job '" + job.type + "' (ID: " + id + ") completed successfully." + job.data);
+        sails.log.info("🌿 Job '" + job.type + "' (ID: " + id + ") completed successfully." + job.data);
       });
     }).on("job failed", function (id) {
       Job.get(id, function (err, job) {
         if (err) return;
         sails.log(job._error);
         sails.log("\n");
-        sails.log.warn("Job '" + job.type + "' (ID: " + id + ") failed. Error: " + job._error);
+        sails.log.warn("🤯 Job '" + job.type + "' (ID: " + id + ") failed. Error: " + job._error);
       });
     });
   };
