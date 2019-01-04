@@ -7,7 +7,7 @@
 var kue = require("kue");
 var Job = kue.Job;
 var redis = require("redis");
-module.exports = function defineJobqueueHook(sails) {
+module.exports = function jobqueue(sails) {
 
   return {
     initialize: async function () {
@@ -33,8 +33,8 @@ module.exports = function defineJobqueueHook(sails) {
       var options = sails.config.redis;
       if (sails.config && sails.config.redis && sails.config.redis.url && sails.config.redis.url ) {
         options = {
-          host: sails.config.redis.url,
-          port: sails.config.redis.port,
+          host: sails.config.redis.url ? sails.config.redis.url : '127.0.0.1',
+          port: sails.config.redis.port ? sails.config.redis.port : 6379,
           //   pass: redisUri.auth.split(":")[1],
         };
       }
