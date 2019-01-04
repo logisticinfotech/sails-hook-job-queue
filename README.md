@@ -37,7 +37,7 @@ module.exports = {
 }
 ```
 
-Create test an action
+Create an action for testing a job
 
 => `sails generate action test-job`
 
