@@ -1,0 +1,29 @@
+{
+  "name": "@logisticinfotech/sails-hook-job-queue",
+  "version": "0.0.1",
+  "description": "sails hook for job-queue with kue",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logisticinfotech/sails-hook-job-queue.git"
+  },
+  "keywords": [
+    "sails",
+    "v1",
+    "hook",
+    "jobs",
+    "queue",
+    "kue",
+    "logistic",
+    "library"
+  ],
+  "author": "Nirav Adatiya <niravjadatiya@gmail.com> (http://niravadatiya.gq)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logisticinfotech/sails-hook-job-queue/issues"
+  },
+  "homepage": "https://github.com/logisticinfotech/sails-hook-job-queue#readme"
+}
