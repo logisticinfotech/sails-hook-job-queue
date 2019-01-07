@@ -2,6 +2,10 @@
 
 Kue based job queue for sails v1.1.0+. Its a wrapper around [**Kue**](https://automattic.github.io/kue/) for processing published jobs by using [**Redis**](https://redis.io/) as a queue engine.
 
+### Dependencies
+[**Redis**](https://redis.io/) (you need to install globally)
+[**Kue**](https://automattic.github.io/kue/) (it will install itself)
+
 ### Installation
 ```
 $ npm i @logisticinfotech/sails-hook-job-queue
@@ -16,8 +20,6 @@ redis: {
     url: "127.0.0.1"
 }
 ```
-
-Install Redis server globally,
 
 To run Redis server
 
