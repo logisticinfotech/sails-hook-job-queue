@@ -17,14 +17,14 @@ $ npm i @logisticinfotech/sails-hook-job-queue
 ### Usage
 
 First we need to export this params globally,
-We can declare it inside our development.js or production.js (config/env)
-(here i am assuming that Redis server is running at `127.0.0.1:6379` on your pc)
+We can declare it inside our development.js or production.js (config/env) 
 
 ```
-redis: {
-    port: 6379,
-    url: "127.0.0.1"
-}
+ redis_url: 'redis://127.0.0.1:6379'
+
+ // or you can add your own
+
+ redis_url: 'redis://user:password@host.com:6379/testjob'
 ```
 
 Create `Jobs.js` inside api/services

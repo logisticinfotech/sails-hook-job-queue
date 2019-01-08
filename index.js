@@ -30,27 +30,13 @@ module.exports = function jobqueue(sails) {
 
   function initJobQueue() {
     kue.redis.createClient = function () {
-      var options = sails.config.redis;
-      if (sails.config && sails.config.redis && sails.config.redis.url && sails.config.redis.url ) {
-        options = {
-          host: sails.config.redis.url ? sails.config.redis.url : '127.0.0.1',
-          port: sails.config.redis.port ? sails.config.redis.port : 6379,
-          //   pass: redisUri.auth.split(":")[1],
-        };
-      }
-
-      var client = redis.createClient(options.port, options.host, options);
+      var url = sails.config.redis_url ? sails.config.redis_url : 'redis://127.0.0.1:6379';
+      var client = redis.createClient(url, options);
       // Log client errors
       client.on("error", function (err) {
         sails.log.error(err);
       });
-
-      // Authenticate, if required
-      if (options.pass) {
-        client.auth(options.pass, function (err) {
-          if (err) sails.log.error(err);
-        });
-      }
+       
       return client;
     };
 
