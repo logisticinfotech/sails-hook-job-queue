@@ -8,6 +8,6 @@ Kue based job queue for sails v1.1.0+. Its a wrapper around [**Kue**](https://au
 
 [**Kue**](https://automattic.github.io/kue/) (it will install itself)
 
-### Guide
+### Installation and Setup guide
 
 Please check [this blog](https://www.logisticinfotech.com/blog/easiest-way-to-create-job-queue-in-sails-with-sails-hook-job-queue/) for step by step guide.
