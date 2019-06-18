@@ -9,6 +9,8 @@ var Job = kue.Job;
 var redis = require("redis");
 module.exports = function jobqueue(sails) {
 
+
+
   return {
     initialize: async function () {
       //   var hook = this;
@@ -22,27 +24,21 @@ module.exports = function jobqueue(sails) {
       }
 
       sails.after(eventsToWaitFor, function () {
-        sails.log.info(" 🍺   Logistic Infotech's sails-hook-job-queue loaded 🍺  ");
         initJobQueue();
+        sails.log.info(" 🍺   Logistic Infotech's sails-hook-job-queue loaded 🍺  ");
       });
     }
   };
 
   function initJobQueue() {
-    kue.redis.createClient = function () {
-      var url = sails.config.redis_url ? sails.config.redis_url : 'redis://127.0.0.1:6379';
-      var client = redis.createClient(url, options);
-      // Log client errors
-      client.on("error", function (err) {
-        sails.log.error(err);
-      });
-       
-      return client;
-    };
+
 
     // Create job queue on Jobs service
     var processors = Jobs._processors;
-    Jobs = kue.createQueue();
+    var redis_url = sails.config.redis_url ? sails.config.redis_url : 'redis://127.0.0.1:6379';
+    Jobs = kue.createQueue({
+      redis: redis_url
+    });
     Jobs._processors = processors;
     startWorker();
   }
