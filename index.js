@@ -50,8 +50,7 @@ module.exports = function jobqueue(sails) {
 
         redisConfig = {
           createClientFactory: function() {
-            var redisUrl = sails.config.redis_url_ssl;
-            var urlObj = new URL(redisUrl);
+            var urlObj = new URL(redis_url);
 
             sails.log.info('Using ioredis Cluster for Azure Redis Cache with SSL');
 
